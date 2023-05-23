@@ -1,5 +1,6 @@
 package com.boringdroid.systemui
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
@@ -9,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class AllAppsLayout @JvmOverloads constructor(
     context: Context,
@@ -45,7 +48,9 @@ class AllAppsLayout @JvmOverloads constructor(
                 val intent = Intent()
                 intent.component = appData.componentName
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context.startActivity(intent)
+                val options = ActivityOptions.makeBasic().setLaunchDisplayId(2)
+                context.startActivity(intent, options.toBundle())
+               // context.startActivity(intent)
                 if (handler != null) {
                     handler!!.sendEmptyMessage(HandlerConstant.H_DISMISS_ALL_APPS_WINDOW)
                 } else {
