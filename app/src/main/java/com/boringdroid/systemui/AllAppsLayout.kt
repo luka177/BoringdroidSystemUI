@@ -48,7 +48,7 @@ class AllAppsLayout @JvmOverloads constructor(
                 val intent = Intent()
                 intent.component = appData.componentName
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                val options = ActivityOptions.makeBasic().setLaunchDisplayId(2)
+                val options = ActivityOptions.makeBasic().setLaunchDisplayId(context.display!!.displayId)
                 context.startActivity(intent, options.toBundle())
                // context.startActivity(intent)
                 if (handler != null) {
