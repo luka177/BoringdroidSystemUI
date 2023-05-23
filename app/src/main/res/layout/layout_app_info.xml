@@ -8,7 +8,6 @@
     android:layout_marginTop="@dimen/all_apps_item_spacing_vertical"
     android:layout_marginEnd="@dimen/all_apps_item_spacing_horizontal"
     android:layout_marginBottom="@dimen/all_apps_item_spacing_vertical"
-    android:background="@drawable/bg_app_info"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
